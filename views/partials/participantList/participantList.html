@@ -1,0 +1,13 @@
+<template name="participantList">
+    <div id="participantList">
+        {{#each participants}}
+            {{#if user}}
+                <div class="participant {{#if isObserving}}observing{{/if}}">
+                    <img src="{{user.avatarUrl width='30' height='30' crop='lfill' gravity='faces'}}">
+                    <p>{{user.displayName}}</p>
+                    <div class="status {{user.status}}"></div>
+                </div>
+            {{/if}}
+        {{/each}}
+    </div>
+</template>

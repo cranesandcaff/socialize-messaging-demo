@@ -1,0 +1,47 @@
+#landing{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    @include radial-gradient(circle, rgba(175,175,175, .3), rgba(175,175,175,.0) 100%);
+    background-color:transparent;
+
+    #loginArea{
+        padding:60px;
+        width:60%;
+        max-width: 600px;
+        background-color:$primary;
+    }
+
+    .logo{
+        margin-bottom: 20px;
+    }
+
+    .at-title{
+        display:none;
+    }
+
+    label{
+        display:none;
+    }
+
+    input[type=email], input[type=password]{
+        padding:10px;
+        margin-bottom:15px;
+        color:white;
+        border-radius: 3px;
+        background-color: darken($primary, 8%)
+    }
+
+    button{
+        margin:20px 0;
+        background-color: $success;
+        color: white;
+        border-color: lighten($success, 5%);
+    }
+
+    a{
+        color: $success;
+        text-decoration: none;
+    }
+}

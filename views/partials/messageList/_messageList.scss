@@ -1,0 +1,131 @@
+$self-background-color: #f2f2f2;
+$self-text-color:#333;
+$self-stamp-color: darken($self-background-color, 35%);
+
+$not-self-background-color: $primary;
+$not-self-text-color: #fff;
+$not-self-stamp-color: lighten($not-self-background-color, 20%);
+
+$arrow-width: 13px;
+$arrow-height: 13px;
+
+#messages{
+    position:absolute;
+    top:0;
+    bottom:76px;
+    left:0;
+    right:0;
+    width:100%;
+    overflow:hidden;
+    overflow-y: auto;
+}
+
+#loadPreviousMessages{
+    text-align: center;
+    color: $primary;
+    margin: 10px;
+    padding: 10px;
+    cursor:pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.message{
+    position:relative;
+    padding:10px 68px;
+    min-height: 72px;
+    overflow: hidden;
+    font-size:16px;
+    color: #222;
+    width:100%;
+
+    .body{
+        font-size:14px;
+        padding:10px;
+        position:relative;
+        border-radius: 3px;
+        display:inline-block;
+        &:before{
+            z-index: 10;
+        }
+
+        .time-stamp{
+            font-size: 9px;
+            margin-top: 4px;
+            text-align: right;
+        }
+
+        textarea{
+            background-color:$self-background-color;
+        }
+    }
+
+    >img:first-child{
+        position: absolute;
+        top: 10px;
+        max-width: 40px;
+        max-height: 40px;
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    &.self{
+        text-align:right;
+        padding-left: 20px;
+        >img:first-child{
+            right: 16px;
+        }
+
+        .body{
+            background-color: $self-background-color;
+            color:#333;
+            text-align:left;
+            &:before{
+                content:" ";
+                position:absolute;
+                @include triangle($arrow-width $arrow-height, $self-background-color, up-left);
+                top:0px;
+                right:-$arrow-width + 2;
+            }
+            .time-stamp{
+                color:$self-stamp-color;
+            }
+        }
+    }
+
+    &.not-self{
+        padding-right: 20px;
+
+        >img:first-child{
+            left: 16px;
+        }
+
+        .body{
+            background-color: $not-self-background-color;
+            color:$not-self-text-color;
+            &:before{
+                content:" ";
+                position:absolute;
+                @include triangle($arrow-width $arrow-height, $not-self-background-color, up-right);
+                top:0px;
+                left:-$arrow-width + 2;
+            }
+            .time-stamp{
+                color:$not-self-stamp-color;
+            }
+        }
+    }
+}
+
+#reply-area {
+    position: absolute;
+    bottom:0;
+    width:100%;
+    textarea{
+        resize:none;
+    }
+    .body{
+        width:100%;
+    }
+}

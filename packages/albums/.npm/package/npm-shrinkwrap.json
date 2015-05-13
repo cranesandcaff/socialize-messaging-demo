@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "cloudinary": {
+      "version": "1.0.11",
+      "dependencies": {
+        "coffee-script": {
+          "version": "1.7.1",
+          "dependencies": {
+            "mkdirp": {
+              "version": "0.3.5"
+            }
+          }
+        },
+        "underscore": {
+          "version": "1.4.4"
+        }
+      }
+    },
+    "stream-buffers": {
+      "version": "1.0.0"
+    }
+  }
+}

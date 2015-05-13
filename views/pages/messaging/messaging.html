@@ -1,0 +1,26 @@
+<template name="messaging">
+    <div id="conversationList">
+        {{#each currentUser.conversations}}
+            <div class="conversation">
+                <a href="{{pathFor 'conversation' this}}">
+                    <section>
+                        {{#each participants 1 null "date" -1}}
+                            {{#if user}}<img src="{{user.avatarUrl width='50' height='50' crop='lfill' gravity='faces'}}">{{/if}}
+                        {{/each}}
+                        <article>
+                            {{#each messages 1 null "date" -1}}
+                            <p><strong>{{user.displayName}}</strong>: {{body}}</p>
+                            {{/each}}
+                        </article>
+                        <div>&nbsp;</div>
+                    </section>
+                </a>
+            </div>
+            <div class="seperator"></div>
+        {{/each}}
+    </div>
+
+    {{>yield "messageArea"}}
+
+    {{>participantList}}
+</template>

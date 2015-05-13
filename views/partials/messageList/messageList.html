@@ -1,0 +1,19 @@
+<template name="messageList">
+    <div id="messageList">
+        <div id="messages">
+            {{#if ready}}
+                {{#unless done}}
+                    <div id="loadPreviousMessages">
+                        <p>Load More</p>
+                    </div>
+                {{/unless}}
+                {{#each messages null null "date" 1}}
+                    {{>message}}
+                {{/each}}
+            {{else}}
+                {{> loadingBanner message="Loading Messages"}}
+            {{/if}}
+        </div>
+        {{>replyArea}}
+    </div>
+</template>
