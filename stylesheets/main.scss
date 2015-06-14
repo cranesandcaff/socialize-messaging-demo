@@ -1,4 +1,4 @@
-@import ".meteor/local/build/programs/server/assets/packages/meta_susy/susy";
+@import "meta_susy/susy";
 @import "bourbon/bourbon";
 @import "fonts";
 
@@ -127,5 +127,3 @@ small{
 @import "../views/partials/messageList/messageList";
 
 @import "../views/partials/participantList/participantList";
-
-
